@@ -67,9 +67,16 @@ npm run dev
 - **Custom Verification**: Manual generation of signup links dispatched via a custom SMTP service with a premium, branded email template.
 - **Secure Sessions**: Integrated with `AuthContext` on the frontend for persistent, secure user states.
 
+### 🧠 AI Crisis Verification Engine (Hugging Face)
+- **Zero-Shot Classification**: Employs `MoritzLaurer/mDeBERTa-v3-base-mnli-xnli` via Hugging Face Pipeline to evaluate report content and classify it as *Factual Crisis*, *Sensationalist Misinformation*, *Opinion*, *Spam*, or *Fake News*.
+- **Multilingual Semantic Embeddings**: Utilizes `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` and PyTorch to generate embeddings for English and Urdu descriptions, computing semantic cosine similarity to verify cross-language reporting consistency.
+- **Linguistic Marker Analysis**: Custom heuristic parsing for hyperbole (e.g., "catastrophic", "خون کی ندیاں"), urgency indicators (ALL CAPS, excessive exclamations `!!!`), and sourcing vagueness ("someone said").
+- **Pakistan Historical Plausibility Map**: A rule-based spatial-temporal validator that verifies if crisis reports align with historical patterns (e.g., checking if flooding matches monsoon months [June–Sept], or if earthquakes occur in high-seismic fault zones like Quetta/Peshawar).
+- **Graceful Fallback Mode**: Designed for resilience; lazy-loads large models on-demand and falls back automatically to robust, high-accuracy linguistic heuristics if ML models are loading or offline.
+
 ### 📊 Intelligence Dashboard
 - **Live Crisis Feed**: Real-time AI-verified alerts for floods, earthquakes, and security incidents.
-- **AI Trust Scoring**: Visualized trust gauges for every report to filter noise from genuine crises.
+- **AI Trust Scoring**: Dynamic trust gauges mapping the weighted average of zero-shot confidence, linguistic analysis, historical patterns, and reporter trust.
 - **Interactive Safety Map**: GIS-powered maps showing shelters, danger zones, and evacuation routes.
 - **Multilingual Support**: Fully translated in English and Urdu, including voice alerts.
 
@@ -100,6 +107,8 @@ npm run dev
 ### Backend
 - FastAPI (High-performance Python framework)
 - Supabase (Auth & Database)
+- PyTorch & Hugging Face Transformers (Zero-Shot Classifier & Multilingual Embeddings)
+- SciPy & NumPy (Cosine Similarity computation)
 - FastAPI-Mail (Custom SMTP delivery)
 - Pydantic Settings (Type-safe configuration)
 
