@@ -1,0 +1,65 @@
+# IDEs and OS Configuration
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Project-specific ignores
+learn.md
+
+# Dependencies and Build Outputs
+node_modules/
+dist/
+dist-ssr/
+build/
+.cache/
+.eslintcache
+*.tsbuildinfo
+
+# Environment variables (sensitive data)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.production
+
+# Python environment and compilation
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+eggs/
+env.bak/
+venv.bak/
+
+# Databases
+db.sqlite3
+db.sqlite3-journal
+
+# Python testing/caches
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+.coverage.*
+
+# Logs and runtime data
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+pids
+*.pid
+*.seed
+*.pid.lock
